@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import { Text, View, StyleSheet, Button, Image } from 'react-native'
 
-export default function ResultsCard( {painting} ) {
+export default function ResultsCard( {painting, selectPainting} ) {
 
     const styles = StyleSheet.create({
         textStyle: {
@@ -14,10 +14,9 @@ export default function ResultsCard( {painting} ) {
             <Text>{painting.title}</Text>
             <Text>{painting.artistDisplayName}</Text>
             <Text>{painting.accessionNumber}</Text>
-            <Text>{painting.primaryImage}</Text>
             <Button
                 title='Select Artwork'
-                onPress={() => console.log('You picked me!')}
+                onPress={() => selectPainting(painting)}
             />
         </View>
     )

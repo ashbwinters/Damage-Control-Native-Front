@@ -2,6 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './src/screens/HomeScreen';
 import AdminScreen from "./src/screens/AdminScreen";
+// import { useState } from 'react';
 
 
 const navigator = createStackNavigator({
@@ -13,5 +14,8 @@ const navigator = createStackNavigator({
     title: 'Home'
   }
 })
+
+// const [displayImage, setDisplayImage] = useState('')
+// const [objectID, setObjectID] = useState
 
 export default createAppContainer(navigator)

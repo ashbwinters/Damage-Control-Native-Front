@@ -16,21 +16,31 @@ export default function AdminScreen() {
     });
 
     const [artist, setArtist] = useState('')
+    const [hasSearchResults, setHasSearchResults] = useState(false)
+    const [selectedPainting, setSelectedPainting] = useState({})
     const [searchMetAPI, results] = useInitialResults()
     const [getLimitedPaintings, paintings] = usePaintingsResults()
 
-    getLimitedPaintings(results)
-    console.log(results[1])
+    const handleArtistSearch = (artist) => {
+        searchMetAPI(artist)
+        setHasSearchResults(true)
+    }
 
+    const selectPainting = (painting) => {
+        setSelectedPainting(painting)
+    }
+
+    hasSearchResults ? getLimitedPaintings(results) : null
+    
     return (
         <View style={styles.background}>
             <SearchBar
                 asseccionNumber={artist}
                 onSearchChange={setArtist}
-                onSearchSubmit={() => searchMetAPI(artist)}
+                onSearchSubmit={() => handleArtistSearch(artist)}
             />
             <Text>{results.length} number of works for {artist}</Text>
-            <SearchResults paintings={paintings} showMoreResults={getLimitedPaintings}/>
+            <SearchResults paintings={paintings} showMoreResults={getLimitedPaintings} selectPainting={selectPainting}/>
         </View>
     );
 }
