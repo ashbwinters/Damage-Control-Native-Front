@@ -39,8 +39,11 @@ export default function AdminScreen() {
                 onSearchChange={setArtist}
                 onSearchSubmit={() => handleArtistSearch(artist)}
             />
-            <Text>{results.length} number of works for {artist}</Text>
-            <SearchResults paintings={paintings} showMoreResults={getLimitedPaintings} selectPainting={selectPainting}/>
+            <SearchResults
+                paintings={paintings}
+                showMoreResults={getLimitedPaintings}
+                selectPainting={selectPainting}
+            />
         </View>
     );
 }
