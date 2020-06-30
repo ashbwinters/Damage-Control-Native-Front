@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import SearchBar from '../components/SearchBar';
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, Button } from 'react-native'
+import SearchBar from '../components/SearchBar'
+import metMuseum from '../api/metMuseum';
 
 export default function AdminScreen() {
 
@@ -12,16 +13,35 @@ export default function AdminScreen() {
         textStyle: {}
     });
 
-    const [accessionNumber, setAccessionNumber] = useState('')
+    const [artist, setArtist] = useState('')
+    const [results, setResults] = useState([])
+    const [paintings, setPaintings] = useState([])
+
+    const searchMetAPI = async () => {
+            const response = await metMuseum.get('/search', {
+                params: {
+                    hasImages: true,
+                    artistOrCultureRequest: true,
+                    q: artist
+                }
+            })
+            setResults(response.data.objectIDs)
+    }
+
+    const getLimitedPaintings = async () => {
+            const response = await metMuseum.get(`/objects/${results.first}`)
+            setPaintings(...paintings, response.data)
+
+    } 
 
     return (
         <View style={styles.background}>
-            <Text>{accessionNumber}</Text>
             <SearchBar
-                asseccionNumber={accessionNumber}
-                onSearchChange={newNumber => setAccessionNumber(newNumber)}
-                onSearchSubmit={() => console.log(accessionNumber)}
+                asseccionNumber={artist}
+                onSearchChange={setArtist}
+                onSearchSubmit={searchMetAPI}
             />
+            <Text>{results.length} number of works for {artist}</Text>
         </View>
     );
 }

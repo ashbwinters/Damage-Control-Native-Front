@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-export default function SearchBar({ accessionNumber, onSearchChange, onSearchSubmit }) {
+export default function SearchBar({ artist, onSearchChange, onSearchSubmit }) {
 
     const styles = StyleSheet.create({
         inputStyle: {
@@ -31,8 +31,8 @@ export default function SearchBar({ accessionNumber, onSearchChange, onSearchSub
             />
             <TextInput
                 style={styles.inputStyle}
-                placeholder='Serch by Accession Number'
-                value={accessionNumber}
+                placeholder="Search by Artist's Full Name"
+                value={artist}
                 onChangeText={onSearchChange}
                 onEndEditing={(value) => onSearchSubmit(value)}
             />
