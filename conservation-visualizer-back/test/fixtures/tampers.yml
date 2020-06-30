@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  painting: one
+  significant_tamper: false
+  used_program: false
+
+two:
+  painting: two
+  significant_tamper: false
+  used_program: false
