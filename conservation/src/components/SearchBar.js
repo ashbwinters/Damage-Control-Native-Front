@@ -12,13 +12,15 @@ export default function SearchBar({ artist, onSearchChange, onSearchSubmit }) {
         iconStyle: {
             fontSize: 42,
             color: 'grey',
-            alignSelf: 'center'
+            alignSelf: 'center',
+            marginHorizontal: 20
         },
         backgroundStyle: { 
             backgroundColor: 'floralwhite',
             height: 50,
-            borderRadius: 15,
-            marginHorizontal: 15,
+            borderRadius: 25,
+            marginHorizontal: 25,
+            marginVertical: 20,
             flexDirection: 'row'
         }
     })

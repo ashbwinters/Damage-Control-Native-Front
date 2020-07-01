@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import SearchBar from '../components/SearchBar'
-import useInitialResults from '../hooks/useInitialResults'
-import usePaintingsResults from '../hooks/usePaintingsResults'
 import SearchResults from '../containers/SearchResults'
+import usePaintingsResults from '../hooks/usePaintingsResults';
 
 export default function AdminScreen() {
 
@@ -16,32 +15,24 @@ export default function AdminScreen() {
     });
 
     const [artist, setArtist] = useState('')
-    const [hasSearchResults, setHasSearchResults] = useState(false)
+    const [searchMetAPI, paintings] = usePaintingsResults()
     const [selectedPainting, setSelectedPainting] = useState({})
-    const [searchMetAPI, results] = useInitialResults()
-    const [getLimitedPaintings, paintings] = usePaintingsResults()
-
-    const handleArtistSearch = (artist) => {
-        searchMetAPI(artist)
-        setHasSearchResults(true)
-    }
+    
 
     const selectPainting = (painting) => {
         setSelectedPainting(painting)
     }
-
-    hasSearchResults ? getLimitedPaintings(results) : null
+    console.log('selected painting title:', selectedPainting)
     
     return (
         <View style={styles.background}>
             <SearchBar
                 asseccionNumber={artist}
                 onSearchChange={setArtist}
-                onSearchSubmit={() => handleArtistSearch(artist)}
+                onSearchSubmit={() => searchMetAPI(artist)}
             />
             <SearchResults
                 paintings={paintings}
-                showMoreResults={getLimitedPaintings}
                 selectPainting={selectPainting}
             />
         </View>

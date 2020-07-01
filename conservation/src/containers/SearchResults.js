@@ -1,25 +1,27 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import { Text, View, StyleSheet, Button, FlatList } from 'react-native'
 import ResultsCard from '../components/ResultsCard'
 
-export default function SearchResults( {paintings, showMoreResults, selectPainting} ) {
+export default function SearchResults( {paintings, selectPainting} ) {
 
     const styles = StyleSheet.create({
         textStyle: {
-
+            fontSize: 24,
+            alignSelf: 'center'
         },
         listStyle: {
 
         }
     })
-    console.log(paintings)
+
     return (
         <View>
-            <Text>Results Go Here</Text>
-            <ResultsCard painting={paintings} selectPainting={selectPainting}/>
-            <Button
-                title='Next'
-                onPress={() => console.log('more results')}
+            <FlatList
+                data={paintings}
+                keyExtractor={painting => painting.accessionNumber}
+                renderItem={ ({item}) => {
+                    return <ResultsCard painting={item} selectPainting={selectPainting}/>
+                }}
             />
         </View>
     )

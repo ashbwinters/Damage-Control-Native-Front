@@ -5,10 +5,17 @@ export default () => {
 
     const [paintings, setPaintings] = useState([])
 
-    const getLimitedPaintings = async results => {
-            const response = await metMuseum.get(`/objects/${results[1]}`)
-            setPaintings(...paintings, response.data)
-    } 
+    const searchMetAPI = async artist => {
+        const response = await metMuseum.get(`/collectionlisting`, {
+            params: {
+                showOnly: 'withImage openAccess',
+                q: artist,
+                perPage: 80,
+                searchField: 'ArtistCulture'
+            }
+        })
+        setPaintings(response.data.results)
+    }
 
-    return[getLimitedPaintings, paintings]
+    return[searchMetAPI, paintings]
 }
