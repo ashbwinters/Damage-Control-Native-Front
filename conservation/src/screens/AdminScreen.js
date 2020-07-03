@@ -1,40 +1,39 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
-import SearchBar from '../components/SearchBar'
-import SearchResults from '../containers/SearchResults'
-import usePaintingsResults from '../hooks/usePaintingsResults';
+import { withNavigation } from "react-navigation"
 
-export default function AdminScreen() {
+function AdminScreen ({ navigation }) {
 
+    const painting = navigation.getParam('painting')
+    console.log(painting)
     const styles = StyleSheet.create({
-        background: {
+        backgroundStyle: {
             backgroundColor: 'azure',
-            height: '100%'
+            flex: 1
         },
-        textStyle: {}
-    });
+        textStyle:{
+            flex:95,
+            fontSize: 48,
+            alignSelf: 'center'
+        },
+        buttonStyle: {
+            alignSelf: "flex-end",
+            flex: 5,
+            fontSize: 32,
+            color: 'grey',
+            marginRight: 15
+        }
+    })
 
-    const [artist, setArtist] = useState('')
-    const [searchMetAPI, paintings] = usePaintingsResults()
-    const [selectedPainting, setSelectedPainting] = useState({})
-    
-
-    const selectPainting = (painting) => {
-        setSelectedPainting(painting)
-    }
-    console.log('selected painting title:', selectedPainting)
-    
     return (
-        <View style={styles.background}>
-            <SearchBar
-                asseccionNumber={artist}
-                onSearchChange={setArtist}
-                onSearchSubmit={() => searchMetAPI(artist)}
-            />
-            <SearchResults
-                paintings={paintings}
-                selectPainting={selectPainting}
+        <View style={styles.backgroundStyle}>
+            <Text style={styles.textStyle}>{painting.title}</Text>
+            <Button
+                style={styles.buttonStyle}
+                title="Search Paintings by Artist"
+                onPress={() => {navigation.navigate('Search')}}
             />
         </View>
-    );
+    )
 }
+export default withNavigation(AdminScreen)

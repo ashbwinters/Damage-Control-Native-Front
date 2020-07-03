@@ -1,17 +1,12 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button, FlatList } from 'react-native'
+import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
+import { withNavigation } from "react-navigation";
 import ResultsCard from '../components/ResultsCard'
 
-export default function SearchResults( {paintings, selectPainting} ) {
+function SearchResults( {paintings, navigation} ) {
 
     const styles = StyleSheet.create({
-        textStyle: {
-            fontSize: 24,
-            alignSelf: 'center'
-        },
-        listStyle: {
-
-        }
+        textStyle: {}
     })
 
     return (
@@ -20,9 +15,14 @@ export default function SearchResults( {paintings, selectPainting} ) {
                 data={paintings}
                 keyExtractor={painting => painting.accessionNumber}
                 renderItem={ ({item}) => {
-                    return <ResultsCard painting={item} selectPainting={selectPainting}/>
+                    return (
+                    <TouchableOpacity onPress={() => {navigation.navigate('Admin', {painting: item})}}>
+                        <ResultsCard painting={item} />
+                    </TouchableOpacity>
+                    )
                 }}
             />
         </View>
     )
 }
+export default withNavigation(SearchResults)

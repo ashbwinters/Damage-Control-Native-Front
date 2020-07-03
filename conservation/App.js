@@ -3,14 +3,13 @@ import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './src/screens/HomeScreen'
 import AdminScreen from './src/screens/AdminScreen'
 import LoginScreen from './src/screens/LoginScreen'
-import { useNavigation } from '@react-navigation/native'
-// import { useState } from 'react';
-
+import SearchScreen from './src/screens/SearchScreen'
 
 const navigator = createStackNavigator({
   Home: HomeScreen,
+  Login: LoginScreen,
   Admin: AdminScreen,
-  Login: LoginScreen
+  Search: SearchScreen
 
 }, {
   initialRouteName: 'Home',
@@ -18,8 +17,4 @@ const navigator = createStackNavigator({
     title: 'Damage Control: Painting Edition'
   }
 })
-
-// const [displayImage, setDisplayImage] = useState('')
-// const [objectID, setObjectID] = useState
-
 export default createAppContainer(navigator)

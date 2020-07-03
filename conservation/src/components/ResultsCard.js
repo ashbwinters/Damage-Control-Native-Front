@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button, Image } from 'react-native'
+import { Text, View, StyleSheet, Image } from 'react-native'
 
-export default function ResultsCard( {painting, selectPainting} ) {
+export default function ResultsCard({ painting }) {
 
     const styles = StyleSheet.create({
         textStyle: {
@@ -25,10 +25,6 @@ export default function ResultsCard( {painting, selectPainting} ) {
         <View style={styles.listItemStyle}>
             <View>
                 <Image style={styles.imageStyle} source={{uri: painting.image}}/>
-                <Button
-                    title='Select Artwork'
-                    onPress={() => selectPainting(painting)}
-                />
             </View>
             <View>
                <Text style={styles.textStyle}>Title: {painting.title}</Text>

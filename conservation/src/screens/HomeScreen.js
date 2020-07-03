@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
+import { withNavigation } from "react-navigation";
 
-export default function HomeScreen ({ navigation }) {
+function HomeScreen ({ navigation }) {
 
     const sytles = StyleSheet.create({
         backgroundStyle: {
@@ -33,3 +34,4 @@ export default function HomeScreen ({ navigation }) {
         </View>
     )
 }
+export default withNavigation(HomeScreen)
