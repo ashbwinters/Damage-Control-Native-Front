@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_160922) do
+ActiveRecord::Schema.define(version: 2020_07_05_021040) do
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2020_06_26_160922) do
   end
 
   create_table "paintings", force: :cascade do |t|
-    t.integer "objectID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "accessionNumber"
   end
 
   create_table "tampers", force: :cascade do |t|

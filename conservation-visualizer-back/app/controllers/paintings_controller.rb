@@ -3,7 +3,7 @@ class PaintingsController < ApplicationController
 
     def create
         @painting = Painting.new(
-            objectID: params[:objectID]
+            accessionNumber: params[:accessionNumber]
         )
         if @painting.save
             render json: { status: :created }
@@ -13,7 +13,7 @@ class PaintingsController < ApplicationController
     end
 
     def show
-        @painting = Painting.find_or_create_by(objectID: params[:id])
+        @painting = Painting.find_or_create_by(accessionNumber: params[:id])
         render json: @painting, include: [:tampers, :breaths, :bumps, :flashes, :touches]
     end
 
