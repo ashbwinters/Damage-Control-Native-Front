@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar'
 import SearchResults from '../containers/SearchResults'
 import usePaintingsResults from '../hooks/usePaintingsResults';
 
-function SearchScreen() {
+function SearchScreen({ navigation }) {
 
     const styles = StyleSheet.create({
         background: {
@@ -24,7 +24,7 @@ function SearchScreen() {
                 onSearchChange={setArtist}
                 onSearchSubmit={() => searchMetAPI(artist)}
             />
-            <SearchResults paintings={paintings} />
+            <SearchResults paintings={paintings} navigation={navigation}/>
         </View>
     );
 }

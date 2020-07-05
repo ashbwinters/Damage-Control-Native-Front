@@ -1,11 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
-import { withNavigation } from "react-navigation"
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 function AdminScreen ({ navigation }) {
-
-    const painting = navigation.getParam('painting')
-    console.log(painting)
+    
     const styles = StyleSheet.create({
         backgroundStyle: {
             backgroundColor: 'azure',
@@ -24,16 +22,20 @@ function AdminScreen ({ navigation }) {
             marginRight: 15
         }
     })
-
+    
     return (
         <View style={styles.backgroundStyle}>
-            <Text style={styles.textStyle}>{painting.title}</Text>
             <Button
                 style={styles.buttonStyle}
                 title="Search Paintings by Artist"
                 onPress={() => {navigation.navigate('Search')}}
             />
+            <MaterialCommunityIcons
+                style={styles.buttonStyle}
+                name="presentation-play"
+                onPress={() => {navigation.navigate('Home')}}
+            />
         </View>
     )
 }
-export default withNavigation(AdminScreen)
+export default AdminScreen
