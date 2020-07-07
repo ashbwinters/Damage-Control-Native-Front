@@ -6,19 +6,20 @@ function AdminScreen ({ navigation }) {
     
     const styles = StyleSheet.create({
         backgroundStyle: {
-            backgroundColor: 'azure',
+            backgroundColor: 'darkslategrey',
             flex: 1
         },
         textStyle:{
             flex:95,
             fontSize: 48,
-            alignSelf: 'center'
+            alignSelf: 'center',
+            color: 'darkgoldenrod'
         },
         buttonStyle: {
             alignSelf: "flex-end",
             flex: 5,
             fontSize: 32,
-            color: 'grey',
+            color: 'darkgoldenrod',
             marginRight: 15
         }
     })

@@ -19,8 +19,8 @@ export const PaintingProvider = ({ children }) => {
         "accessionNumber": "49.30",
         "galleryInformation": "Not on view"
         })
-    const changeSelectedPainting = (newPainining) => {
-        setSelectedPainting(newPainining)
+    const changeSelectedPainting = (newPainting) => {
+        setSelectedPainting(newPainting)
     }
 
     return (

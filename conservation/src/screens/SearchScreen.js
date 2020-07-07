@@ -8,10 +8,9 @@ function SearchScreen({ navigation }) {
 
     const styles = StyleSheet.create({
         background: {
-            backgroundColor: 'azure',
+            backgroundColor: 'darkslategrey',
             height: '100%'
-        },
-        textStyle: {}
+        }
     });
 
     const [artist, setArtist] = useState('')
