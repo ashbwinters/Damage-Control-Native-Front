@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_021040) do
+ActiveRecord::Schema.define(version: 2020_06_26_160922) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -19,44 +22,35 @@ ActiveRecord::Schema.define(version: 2020_07_05_021040) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "art_tampers", force: :cascade do |t|
-    t.boolean "signifcant_tamper"
-    t.boolean "used_program"
-    t.integer "painting_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["painting_id"], name: "index_art_tampers_on_painting_id"
-  end
-
   create_table "breaths", force: :cascade do |t|
-    t.integer "painting_id", null: false
+    t.bigint "painting_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["painting_id"], name: "index_breaths_on_painting_id"
   end
 
   create_table "bumps", force: :cascade do |t|
-    t.integer "painting_id", null: false
+    t.bigint "painting_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["painting_id"], name: "index_bumps_on_painting_id"
   end
 
   create_table "flashes", force: :cascade do |t|
-    t.integer "painting_id", null: false
+    t.bigint "painting_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["painting_id"], name: "index_flashes_on_painting_id"
   end
 
   create_table "paintings", force: :cascade do |t|
+    t.string "accessionNumber"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "accessionNumber"
   end
 
   create_table "tampers", force: :cascade do |t|
-    t.integer "painting_id", null: false
+    t.bigint "painting_id", null: false
     t.boolean "significant_tamper"
     t.boolean "used_program"
     t.datetime "created_at", precision: 6, null: false
@@ -65,13 +59,12 @@ ActiveRecord::Schema.define(version: 2020_07_05_021040) do
   end
 
   create_table "touches", force: :cascade do |t|
-    t.integer "painting_id", null: false
+    t.bigint "painting_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["painting_id"], name: "index_touches_on_painting_id"
   end
 
-  add_foreign_key "art_tampers", "paintings"
   add_foreign_key "breaths", "paintings"
   add_foreign_key "bumps", "paintings"
   add_foreign_key "flashes", "paintings"
