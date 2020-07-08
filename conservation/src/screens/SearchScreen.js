@@ -23,7 +23,6 @@ function SearchScreen({ navigation }) {
 }
 export default SearchScreen
 
-
 const styles = StyleSheet.create({
     background: {
         backgroundColor: 'darkslategrey',

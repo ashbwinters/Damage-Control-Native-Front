@@ -5,12 +5,9 @@ import PaintingContext from '../context/PaintingContext'
 
 function SearchResults( {navigation, paintings} ) {
 
-    const styles = StyleSheet.create({
-        textStyle: {}
-    })
-
+    
     const {data, changeSelectedPainting} = useContext(PaintingContext)
-
+    
     const handleSelect = (item) => {
         changeSelectedPainting(item)
         navigation.navigate('Admin')
@@ -22,13 +19,17 @@ function SearchResults( {navigation, paintings} ) {
                 keyExtractor={painting => painting.accessionNumber}
                 renderItem={ ({item}) => {
                     return (
-                    <TouchableOpacity onPress={() => handleSelect(item)}>
+                        <TouchableOpacity onPress={() => handleSelect(item)}>
                         <ResultsCard painting={item} />
                     </TouchableOpacity>
                     )
                 }}
-            />
+                />
         </View>
     )
 }
 export default SearchResults
+
+const styles = StyleSheet.create({
+    textStyle: {}
+})
