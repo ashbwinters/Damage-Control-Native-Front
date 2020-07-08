@@ -6,13 +6,7 @@ import usePaintingsResults from '../hooks/usePaintingsResults';
 
 function SearchScreen({ navigation }) {
 
-    const styles = StyleSheet.create({
-        background: {
-            backgroundColor: 'darkslategrey',
-            height: '100%'
-        }
-    });
-
+    
     const [artist, setArtist] = useState('')
     const [searchMetAPI, paintings] = usePaintingsResults()    
     
@@ -22,9 +16,17 @@ function SearchScreen({ navigation }) {
                 asseccionNumber={artist}
                 onSearchChange={setArtist}
                 onSearchSubmit={() => searchMetAPI(artist)}
-            />
+                />
             <SearchResults paintings={paintings} navigation={navigation}/>
         </View>
     );
 }
 export default SearchScreen
+
+
+const styles = StyleSheet.create({
+    background: {
+        backgroundColor: 'darkslategrey',
+        height: '100%'
+    }
+})

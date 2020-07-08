@@ -14,7 +14,6 @@ function SearchResults( {navigation, paintings} ) {
     const handleSelect = (item) => {
         changeSelectedPainting(item)
         navigation.navigate('Admin')
-        console.log(data)
     }
     return (
         <View>
