@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         marginVertical: 10
     },
     buttonStyle: {
-        fontSize: 32,
+        fontSize: 38,
         color: 'darkgoldenrod',
         alignSelf: "flex-start"    
     }

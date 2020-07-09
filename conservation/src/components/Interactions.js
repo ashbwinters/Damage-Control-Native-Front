@@ -19,7 +19,7 @@ export default Interactions
 styles = StyleSheet.create({
     buttonStyle: {
         alignSelf: "flex-end",
-        fontSize: 32,
+        fontSize: 38,
         color: 'darkgoldenrod',
         marginRight: 15
     },

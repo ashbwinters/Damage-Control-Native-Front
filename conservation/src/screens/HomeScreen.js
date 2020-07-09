@@ -49,16 +49,17 @@ const styles = StyleSheet.create({
     },
     resetStyle: {
         alignSelf: 'center',
-        fontSize: 36,
+        fontSize: 42,
         color: 'darkgoldenrod',
         marginVertical: 20,
-        marginHorizontal: 15
+        marginHorizontal: 20
     },
     buttonStyle: {
         alignSelf: "flex-end",
-        fontSize: 24,
+        fontSize: 30,
         color: 'darkgoldenrod',
-        marginVertical: 15
+        marginVertical: 15,
+        marginHorizontal: 15
     },
     canvasStyle: {
         backgroundColor: 'darkgoldenrod',
