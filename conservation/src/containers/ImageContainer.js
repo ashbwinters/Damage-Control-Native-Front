@@ -18,16 +18,17 @@ function ImageContainer({ paintingDetails, effect }) {
             case('flash'):
                 return <Flash paintingDetails={paintingDetails}/>
             default:
-                return <Image source={{uri: paintingDetails.image}} style={styles.imageStyle}/>
+                return null
 
         }
     }
 
 
     return (
-        <>
+        <View style={styles.containerStyle}>
+            <Image source={{uri: paintingDetails.image}} style={styles.imageStyle}/>
             {showAnimation(effect)}
-        </>
+        </View>
     )
 }
 export default ImageContainer
@@ -37,6 +38,11 @@ const styles = StyleSheet.create({
         flex: 1,
         height: null,
         width: null,
-        resizeMode: "contain"
+        resizeMode: "contain",
+        alignItems: 'center'
+    },
+    containerStyle: {
+        flex: 75,
+        backgroundColor: 'darkgoldenrod'
     }
 })

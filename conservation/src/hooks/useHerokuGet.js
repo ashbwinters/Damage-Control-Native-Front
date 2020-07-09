@@ -3,16 +3,11 @@ import heroku from '../api/heroku'
 
 export default () => {
 
-    const [pantingData, setPaintingData] = useState([])
+    const [pantingData, setPaintingData] = useState({})
 
     const searchHeroku = async accessionNumber => {
-        const response = await heroku.get('paintings', {
-            params: {
-                id: accessionNumber
-            }
-        })
+        const response = await heroku.get(`paintings/${accessionNumber}`)
         setPaintingData(response.data)
     }
-
     return[searchHeroku, pantingData]
 }

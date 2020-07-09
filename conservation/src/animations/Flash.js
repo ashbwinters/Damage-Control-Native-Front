@@ -1,6 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, Animations } from 'react-native'
+import { View, Text, StyleSheet, Animations, Image } from 'react-native'
 
-export default function Flash () {
-    return <Text>Flash</Text>
+export default function Flash ({paintingDetails}) {
+    return <Image source={{uri: paintingDetails.image}} style={styles.imageStyle}/>
 }
+const styles = StyleSheet.create({
+    imageStyle: {
+        flex: 1,
+        height: null,
+        width: null,
+        resizeMode: "contain"
+    }
+})

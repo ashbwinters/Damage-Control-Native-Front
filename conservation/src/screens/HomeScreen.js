@@ -15,9 +15,7 @@ function HomeScreen ({ navigation }) {
     }
     return (
         <View style={styles.backgroundStyle}>
-            <View style={styles.canvasStyle}>
-                <ImageContainer paintingDetails={data} effect={activeInteraction}/>
-            </View>
+            <ImageContainer paintingDetails={data} effect={activeInteraction}/>
             <View style={styles.panelStyle}>
                 <InteractionsContainer
                     activeInteraction={activeInteraction}
@@ -41,9 +39,8 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
     backgroundStyle: {
-        backgroundColor: 'darkgoldenrod',
-        flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flex: 1
     },
     textStyle:{
         fontSize: 24,
@@ -64,6 +61,7 @@ const styles = StyleSheet.create({
         marginVertical: 15
     },
     canvasStyle: {
+        backgroundColor: 'darkgoldenrod',
         flex: 75
     },
     panelStyle: {
