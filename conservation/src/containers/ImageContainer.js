@@ -10,13 +10,13 @@ function ImageContainer({ paintingDetails, effect }) {
     const showAnimation = (effect) => {
         switch(effect){
             case('touch'):
-                return <Touch paintingDetails={paintingDetails}/>
+                return <Touch paintingDetails={paintingDetails} isActive={true} />
             case('breath'):
-                return <Breath paintingDetails={paintingDetails}/>
+                return <Breath paintingDetails={paintingDetails} isActive={true} />
             case('bump'):
-                return <Bump paintingDetails={paintingDetails}/>
+                return <Bump paintingDetails={paintingDetails} isActive={true} />
             case('flash'):
-                return <Flash paintingDetails={paintingDetails}/>
+                return <Flash paintingDetails={paintingDetails} isActive={true} />
             default:
                 return null
 
@@ -38,11 +38,12 @@ const styles = StyleSheet.create({
         flex: 1,
         height: null,
         width: null,
-        resizeMode: "contain",
+        resizeMode: "cover",
         alignItems: 'center'
     },
     containerStyle: {
         flex: 75,
-        backgroundColor: 'darkgoldenrod'
+        borderColor: 'darkgoldenrod',
+        borderWidth: 15
     }
 })

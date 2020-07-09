@@ -24,14 +24,10 @@ function AdminScreen ({ navigation }) {
             </View>
             <View style={styles.dataStyle}>
                 <View style={styles.sectionStyle}>
-                    <View>
-                        <Text style={styles.textStyle}>Artist: {data.artist}</Text>
-                        <Text style={styles.textStyle}>Accession Number: {data.accessionNumber}</Text>
-                    </View>
-                    <View>
-                        <Text style={styles.textStyle}>Title: {data.title}</Text>
-                        <Text style={styles.textStyle}>{data.medium}, {data.date}</Text>
-                    </View>
+                    <Text style={styles.textStyle}>Artist: {data.artist}</Text>
+                    <Text style={styles.textStyle}>Title: {data.title}</Text>
+                    <Text style={styles.textStyle}>Accession Number: {data.accessionNumber}</Text>
+                    <Text style={styles.textStyle}>{data.medium}, {data.date}</Text>
                 </View>
                 <View style={styles.sectionStyle}>
                     <View>
@@ -63,7 +59,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 25,
         alignContent: 'center',
         justifyContent: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     dataStyle: {
         flex: 90,
