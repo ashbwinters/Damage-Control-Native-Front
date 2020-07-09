@@ -9,7 +9,9 @@ function AdminScreen ({ navigation }) {
     const {data, changeSelectedPainting} = useContext(PaintingContext)
     const [searchHeroku, paintingData] = useHerokuGet()
 
-    // searchHeroku(data.accessionNumber)
+        // searchHeroku(data.accessionNumber)
+        // console.log(paintingData)
+
     return (
         <View style={styles.backgroundStyle}>
             <View style={styles.footerStyle}>

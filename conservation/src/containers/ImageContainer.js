@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     containerStyle: {
         flex: 75,
         borderColor: 'darkgoldenrod',
-        borderWidth: 15
+        borderWidth: 15,
     }
 })
