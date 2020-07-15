@@ -6,7 +6,7 @@ import PaintingContext from '../context/PaintingContext'
 function SearchResults( {navigation, paintings} ) {
 
     
-    const {data, changeSelectedPainting} = useContext(PaintingContext)
+    const {changeSelectedPainting} = useContext(PaintingContext)
     
     const handleSelect = (item) => {
         changeSelectedPainting(item)

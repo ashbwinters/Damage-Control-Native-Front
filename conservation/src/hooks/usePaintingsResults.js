@@ -17,5 +17,5 @@ export default () => {
         setPaintings(response.data.results)
     }
 
-    return[searchMetAPI, paintings]
+    return [searchMetAPI, paintings]
 }

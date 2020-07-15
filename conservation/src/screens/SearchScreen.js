@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../containers/SearchResults'
-import usePaintingsResults from '../hooks/usePaintingsResults';
+import usePaintingsResults from '../hooks/usePaintingsResults'
 
-function SearchScreen({ navigation }) {
-
+export default function SearchScreen({ navigation }) {
     
     const [artist, setArtist] = useState('')
     const [searchMetAPI, paintings] = usePaintingsResults()    
@@ -16,12 +15,11 @@ function SearchScreen({ navigation }) {
                 asseccionNumber={artist}
                 onSearchChange={setArtist}
                 onSearchSubmit={() => searchMetAPI(artist)}
-                />
+            />
             <SearchResults paintings={paintings} navigation={navigation}/>
         </View>
-    );
+    )
 }
-export default SearchScreen
 
 const styles = StyleSheet.create({
     background: {
